@@ -1,0 +1,17 @@
+# Log
+logs
+*.log
+npm-debug.log*
+
+# Direktori dependensi
+node_modules
+
+# Direktori cache npm opsional
+.npm
+
+# Direktori file sistem dan pengaturan IDE
+.DS_Store
+.idea
+.vscode
+
+.env
