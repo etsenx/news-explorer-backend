@@ -1,0 +1,34 @@
+# http://editorconfig.org
+
+# Properti khusus yang harus ditentukan pada bagian atas file.
+# Jika nilainya diatur menjadi "true", Editorconfig tidak akan mencari file
+# .editorconfig di folder yang lebih tinggi.
+root = true
+
+[*]
+# Gaya indentasi
+# Nilai yang dapat digunakan - tab, space
+indent_style = space
+
+# Ukuran indentasi dalam karakter spasi tunggal
+# Nilai yang dapat digunakan - integer, tab
+indent_size = 2
+
+# Karakter baris baru yang akan digunakan (jika tidak diisi, akan bergantung pada sistem operasi)
+# Nilai yang dapat digunakan - lf, crlf, cr
+end_of_line = lf
+
+# Pengodean karakter file
+# Nilai yang dapat digunakan - latin1, utf-8, utf-16be, utf-16le
+charset = utf-8
+
+# Menunjukkan apakah program akan memangkas spasi kosong di akhir baris
+# Nilai yang dapat digunakan - true, false
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Menunjukkan apakah file harus diakhiri dengan baris baru
+# Nilai yang dapat digunakan - true, false
+insert_final_newline = true
