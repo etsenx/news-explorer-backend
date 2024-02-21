@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
+    "linebreak-style":"off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    "space-unary-ops": [
+        2, {
+          "words": true,
+          "nonwords": false
+    }]
+  }
+}
