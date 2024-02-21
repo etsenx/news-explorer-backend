@@ -4,24 +4,10 @@ const Article = require('../models/article');
 module.exports.getAllArticles = (req, res, next) => {
   const userId = req.user._id;
   Article.find({ owner: userId })
-    .orFail()
     .then((articles) => {
       res.status(200).send(articles);
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next({
-          statusCode: 404,
-          message: 'User not found',
-        });
-      } else if (err.name === 'DocumentNotFoundError') {
-        next({
-          statusCode: 404,
-          message: 'No article found',
-        });
-      }
-      next(err);
-    });
+    .catch(next);
 };
 
 // Save article

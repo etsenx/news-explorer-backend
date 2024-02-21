@@ -4,6 +4,7 @@ const User = require('../models/user');
 // Create User
 module.exports.register = (req, res, next) => {
   const { email, password, name } = req.body;
+  console.log(req.body);
   User.createUser(email, password, name)
     .then((user) => {
       res.status(201).send({
@@ -45,7 +46,22 @@ module.exports.login = (req, res, next) => {
         ),
       });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err) {
+        if (err.message === 'Incorrect Password') {
+          next({
+            statusCode: 401,
+            message: 'Incorrect Password',
+          });
+        } else if (err.message === 'Email Not Found') {
+          next({
+            statusCode: 401,
+            message: 'Email Not Found',
+          });
+        }
+      }
+      next(err);
+    });
 };
 
 // Get current logged in user

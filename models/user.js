@@ -36,7 +36,7 @@ userSchema.statics.findUserByCredentials = function findUserByCredentials(
       .then((user) => {
         if (!user) {
           return Promise.reject(
-            Object.assign(new Error('Wrong email or password'), {
+            Object.assign(new Error('Email not found'), {
               statusCode: 401,
             }),
           );
@@ -45,7 +45,7 @@ userSchema.statics.findUserByCredentials = function findUserByCredentials(
         return bcrypt.compare(password, user.password).then((matched) => {
           if (!matched) {
             return Promise.reject(
-              Object.assign(new Error('Wrong email or password'), {
+              Object.assign(new Error('Incorrect password'), {
                 statusCode: 401,
               }),
             );
