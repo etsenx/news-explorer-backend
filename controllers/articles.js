@@ -23,7 +23,11 @@ module.exports.saveArticle = (req, res, next) => {
     image,
     owner: req.user._id,
   })
-    .then((article) => res.status(201).send(article))
+    .then((article) => {
+      const resArticle = article.toObject();
+      delete resArticle.owner;
+      res.status(201).send(resArticle);
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next({
