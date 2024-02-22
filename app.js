@@ -13,7 +13,15 @@ require('dotenv').config();
 mongoose.connect('mongodb://127.0.0.1:27017/newsexplorer');
 const app = express();
 
-app.use(cors());
+const originListString = process.env.ALLOWED_ORIGIN;
+const originList = originListString.split(',');
+const corsOption = {
+  origin: [originList],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOption));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
