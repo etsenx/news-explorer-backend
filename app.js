@@ -16,7 +16,7 @@ const app = express();
 const originListString = process.env.ALLOWED_ORIGIN;
 const originList = originListString.split(',');
 const corsOption = {
-  origin: [originList],
+  origin: originList,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
